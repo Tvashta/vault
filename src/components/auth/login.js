@@ -1,9 +1,9 @@
 import React, {useRef, useState} from 'react'
 import {Alert,  Card, Container, Form} from "react-bootstrap";
-import {useAuth} from "../contexts/authcontext";
+import {useAuth} from "../../contexts/authcontext";
 import {Link, useHistory} from "react-router-dom";
-import email from "../images/2.PNG"
-import pwd from "../images/1.PNG"
+import email from "../../images/2.PNG"
+import pwd from "../../images/1.PNG"
 
 export default function Login(){
     const emailRef = useRef()
@@ -14,17 +14,18 @@ export default function Login(){
     const history = useHistory()
     async function handleSubmit(e) {
         e.preventDefault()
-
         try {
             setError("")
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
             history.push("/")
         } catch(err){
+            console.log(err)
             setError(err.message)
         }
 
         setLoading(false)
+
     }
     return(
         <div className="login">

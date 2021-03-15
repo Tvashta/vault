@@ -15,6 +15,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  background-color: black;
+
 }
 
 code {
@@ -36,7 +38,7 @@ code {
   padding: 0!important;
 }
 
-.card{
+.login .card{
   background-color: rgba(0,0,0,0) !important;
   color: white!important;
 }
@@ -61,6 +63,7 @@ code {
 .btn-three {
   transition: all 0.5s;
   position: relative;
+  color: white!important;
 }
 .btn-three::before {
   content: '';
@@ -97,13 +100,13 @@ code {
 
 }
 
-.form-txt, .form-txt a{
-  color: rgba(255,255,255,0.2);
-  text-decoration: none;
+.form-txt, .form-txt a, .btn-link.logout-btn{
+  color: rgba(255,255,255,0.2)!important;
+  text-decoration: none!important;
 }
 
-.form-txt a:hover{
-  color: white;
+.form-txt a:hover, .btn-link.logout-btn:hover{
+  color: white!important;
   text-decoration: none;
 }
 
@@ -119,4 +122,148 @@ code {
   text-orientation: upright;
   top: 45%;
   right: 0;
+}
+
+.dashboard{
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+.navbar-brand{
+  font-family: Alphacentauri;
+  font-size: 2rem !important;
+}
+.btn.btn-outline-light {
+  background:transparent;
+  text-align:center;
+  letter-spacing:1px;
+  font-size:1.2em;
+  line-height:1em;
+  font-weight:300;
+  margin:auto;
+  padding:10px;
+  border:1px solid #05505B;
+  overflow:hidden;
+  display:inline-block;
+  transition:all 0.5s;
+  box-shadow:0 2px 0 #05505B;
+  border-radius: 4px;
+}
+
+.btn.btn-outline-light:hover, .btn.btn-outline-light:active {
+  text-decoration: none;
+  color:#fff;
+  border-color:#05505B;
+  background:#05505B;
+  box-shadow:0 0 0 #05505B;
+}
+
+.btn-label {
+  display:inline-block;
+  position:relative;
+  padding-right:0;
+  transition:padding-right 0.5s;
+  color:#05505B;
+  font-family: Brave81, sans-serif;
+  font-weight:200;
+}
+.btn-label:after {
+  content: "";
+  position:absolute;
+  right:-50px;
+  opacity:0;
+  top:22%;
+  width:10px;
+  height:10px;
+  margin-right:-10px;
+  background:rgba(0,0,0,0);
+  border:3px solid #fff;
+  border-top:none;
+  border-right:none;
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform:rotate(225deg);
+}
+
+.btn.btn-outline-light:hover .btn-label,
+.btn.btn-outline-light:active .btn-label {
+  padding-right:30px;
+  color:#f5f1e7;
+}
+
+.btn.btn-outline-light:hover .btn-label:after,
+.btn.btn-outline-light:active .btn-label:after {
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  opacity:1;
+  right:10px;
+  top:22%;
+}
+
+.folder-container{
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0,100,150,0.1);
+  padding: 2%;
+}
+
+.add-folder-btn{
+  position: fixed;
+  right: 5vh;
+  bottom: 10vh;
+  border-radius: 5px;
+  padding: 5px;
+  background: none;
+  border: none;
+  
+}
+
+.add-folder-btn:after {
+  transition: all ease-in-out .2s;
+  background: none repeat scroll 0 0 #ffffff;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+}
+.add-folder-btn:hover:after {
+  width: 100%;
+}
+
+
+.add-folder-btn img{
+  width: 50px;
+}
+
+.btn-x{
+  margin-left: 92%;
+  margin-top: 2%;
+  padding: 0!important;
+  width: 5%;
+  background:none!important;
+
+}
+
+.modal-content{
+  background-color:#000A0F!important;
+  color: white!important;
+}
+
+.profile{
+  background-color: black;
+  height: 100vh;
+  color: white;
+  padding: 5% 0;
+}
+
+.profile .card{
+  background-color: #000A0F;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.back-btn{
+  width: 10%;
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
 }

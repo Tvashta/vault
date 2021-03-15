@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../contexts/authcontext"
+import { Form, Card, Alert } from "react-bootstrap"
+import { useAuth } from "../../contexts/authcontext"
 import { Link, useHistory } from "react-router-dom"
+import email from "../../images/2.PNG"
+import pwd from "../../images/1.PNG"
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -31,7 +33,7 @@ export default function UpdateProfile() {
 
         Promise.all(promises)
             .then(() => {
-                history.push("/")
+                history.push("/profile")
             })
             .catch(() => {
                 setError("Failed to update account")
@@ -42,7 +44,7 @@ export default function UpdateProfile() {
     }
 
     return (
-        <>
+        <div className="profile">
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>
@@ -50,38 +52,51 @@ export default function UpdateProfile() {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control
+                            <div>
+                            <img src={email} alt="" className="form-img"/>
+                            <input
+                                className="form-input"
                                 type="email"
                                 ref={emailRef}
                                 required
                                 defaultValue={curUser.email}
                             />
+                            </div>
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
+                            <div>
+                            <img src={pwd} alt="" className="form-img"/>
+                            <input
+                                className="form-input"
                                 type="password"
                                 ref={passwordRef}
                                 placeholder="Leave blank to keep the same"
                             />
+                            </div>
                         </Form.Group>
                         <Form.Group id="password-confirm">
                             <Form.Label>Password Confirmation</Form.Label>
-                            <Form.Control
+                            <div>
+                            <img src={pwd} alt="" className="form-img"/>
+                            <input
+                                className="form-input"
                                 type="password"
                                 ref={passwordConfirmRef}
                                 placeholder="Leave blank to keep the same"
-                            />
+                            /></div>
                         </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Update
-                        </Button>
+                        <div className="box-3">
+                            <button disabled={loading} type="submit" className="btn btn-three w-100">
+                                <span>UPDATE</span>
+                            </button>
+                        </div>
                     </Form>
                 </Card.Body>
             </Card>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancel</Link>
+            <div className="w-100 text-center mt-2 form-txt">
+                <Link to="/profile">Cancel</Link>
             </div>
-        </>
+        </div>
     )
 }
