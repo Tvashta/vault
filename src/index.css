@@ -127,7 +127,7 @@ code {
 .dashboard{
   background-color: black;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .navbar-brand{
@@ -250,7 +250,7 @@ code {
 
 .profile{
   background-color: black;
-  height: 100vh;
+  min-height: 100vh;
   color: white;
   padding: 5% 0;
 }
@@ -266,4 +266,27 @@ code {
   position: absolute;
   top: 5vh;
   left: 10vw;
+}
+.bg-trans{
+  background-color: rgba(0,0,0,0)!important;
+}
+
+
+.empty-folder div{
+  padding: 2%;
+  margin: 5%;
+  position: absolute;
+  right:0;
+  width: 50vw;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+.empty-folder div h1,div h4, div h5{
+  font-weight: lighter;
+}
+
+.empty-folder img{
+  position: absolute;
+  left: 10vw;
+  transform: scaleX(-1);
 }
