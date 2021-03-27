@@ -5,7 +5,7 @@ import {database} from "../helpers/firebase";
 import {ROOT_FOLDER} from "../helpers/useFolder";
 import addFolder from "../images/addFolder.PNG"
 
-export default function AddFolderButton({ currentFolder }) {
+export default function AddFolder({ currentFolder }) {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState("")
     const { curUser } = useAuth()

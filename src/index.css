@@ -7,6 +7,10 @@
   src: url("/src/fonts/BraveEightyoneRegular.ttf");
 }
 
+html{
+  /*background-color: black;*/
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  background-color: black;
+  /*background-color: black;*/
 
 }
 
@@ -138,11 +142,11 @@ code {
   background:transparent;
   text-align:center;
   letter-spacing:1px;
-  font-size:1.2em;
+  font-size:1.4em;
   line-height:1em;
   font-weight:300;
   margin:auto;
-  padding:10px;
+  padding:10px 20px;
   border:1px solid #05505B;
   overflow:hidden;
   display:inline-block;
@@ -209,7 +213,7 @@ code {
 .add-folder-btn{
   position: fixed;
   right: 5vh;
-  bottom: 10vh;
+  bottom: 15vh;
   border-radius: 5px;
   padding: 5px;
   background: none;
@@ -232,6 +236,19 @@ code {
 
 .add-folder-btn img{
   width: 50px;
+}
+
+.add-file .add-folder-btn{
+  bottom:5vh;
+  cursor: pointer;
+  }
+
+.add-file .add-folder-btn img{
+  width: 40px;
+}
+
+.add-file input{
+  display: none;
 }
 
 .btn-x{
@@ -289,4 +306,49 @@ code {
   position: absolute;
   left: 10vw;
   transform: scaleX(-1);
+}
+
+.file div img{
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+}
+
+
+.file p{
+  display: inline-block;
+  width: 7rem;
+}
+
+.img-zoom {
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform .5s ease;
+  transform: scale(1.3);
+}
+
+.img-zoom:hover img {
+  transform: scale(1);
+}
+
+.file p{
+  font-size: 1.1rem;
+  color: #00A3A3;
+}
+
+.line{
+  background-color: rgba(0,100,150,0.4);
+  width: 60%;
+}
+
+.path-item{
+  font-size: 1.2rem;
+}
+
+.ml-6{
+  margin-left: 5vw!important;
 }

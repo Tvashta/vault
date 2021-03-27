@@ -10,7 +10,7 @@ export default function FolderPath({ currentFolder }) {
     return (
         <Breadcrumb
             className="flex-grow-1"
-            listProps={{ className: "bg-trans m-0 ml-4 pl-0" }}
+            listProps={{ className: "bg-trans m-0 ml-6" }}
         >
             {path.map((folder, index) => (
                 <Breadcrumb.Item
@@ -22,7 +22,7 @@ export default function FolderPath({ currentFolder }) {
                             state: { folder: { ...folder, path: path.slice(1, index) } },
                         },
                     }}
-                    className="text-truncate d-inline-block"
+                    className="text-truncate d-inline-block path-item"
                     style={{ maxWidth: "150px" }}
                 >
                     {folder.name}
@@ -30,7 +30,7 @@ export default function FolderPath({ currentFolder }) {
             ))}
             {currentFolder && (
                 <Breadcrumb.Item
-                    className="text-truncate d-inline-block"
+                    className="text-truncate d-inline-block path-item"
                     style={{ maxWidth: "200px" }}
                     active
                 >

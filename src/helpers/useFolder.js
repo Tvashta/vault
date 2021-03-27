@@ -91,20 +91,19 @@ export function useFolder(folderId = null, folder = null) {
             })
     }, [folderId, curUser])
 
-    // useEffect(() => {
-    //     return (
-    //         database.files
-    //             .where("folderId", "==", folderId)
-    //             .where("user", "==", curUser.uid)
-    //             // .orderBy("date")
-    //             .onSnapshot(snapshot => {
-    //                 dispatch({
-    //                     type: ACTIONS.SET_CHILD_FILES,
-    //                     payload: { childFiles: snapshot.docs.map(database.formatDoc) },
-    //                 })
-    //             })
-    //     )
-    // }, [folderId, curUser])
+    useEffect(() => {
+        return (
+            database.files
+                .where("folderId", "==", folderId)
+                .where("user", "==", curUser.uid)
+                .onSnapshot(snapshot => {
+                    dispatch({
+                        type: ACTIONS.SET_CHILD_FILES,
+                        payload: { childFiles: snapshot.docs.map(database.formatDoc) },
+                    })
+                })
+        )
+    }, [folderId, curUser])
 
     return state
 }
