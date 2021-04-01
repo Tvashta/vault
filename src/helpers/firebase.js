@@ -24,3 +24,4 @@ export const database = {
 }
 export const storage = app.storage()
 export default app
+
