@@ -1,18 +1,37 @@
-import React, { useRef, useState } from "react"
-import { Form, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/authcontext"
-import { Link, useHistory } from "react-router-dom"
+import React, {useEffect, useRef, useState} from "react"
+import {Form, Card, Alert} from "react-bootstrap"
+import {useAuth} from "../../contexts/authcontext"
+import {Link, useHistory} from "react-router-dom"
 import email from "../../images/2.PNG"
 import pwd from "../../images/1.PNG"
+import phImg from "../../images/ph.PNG"
+import nameImg from "../../images/name.PNG"
+import {database} from "../../helpers/firebase";
 
 export default function UpdateProfile() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { curUser, updatePassword, updateEmail } = useAuth()
+    const {curUser, updatePassword, updateEmail} = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const [name, setName] = useState("")
+    const [ph, setPh] = useState("")
+
+    useEffect(()=>{
+        database.users.where("user", "==", curUser.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    setPh(doc.data().ph)
+                    setName(doc.data().name)
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+    },[curUser])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -31,6 +50,24 @@ export default function UpdateProfile() {
             promises.push(updatePassword(passwordRef.current.value))
         }
 
+        database.users.where("user", "==", curUser.uid)
+            .get()
+            .then((querySnapshot) => {
+                if(querySnapshot.empty){
+                    database.users.add({
+                        name,
+                        ph,
+                        user: curUser.uid
+                    })
+                }
+                querySnapshot.forEach((doc) => {
+                    database.users.doc(doc.id).update({name, ph, user: curUser.uid})
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
         Promise.all(promises)
             .then(() => {
                 history.push("/profile")
@@ -41,6 +78,7 @@ export default function UpdateProfile() {
             .finally(() => {
                 setLoading(false)
             })
+
     }
 
     return (
@@ -53,44 +91,71 @@ export default function UpdateProfile() {
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
                             <div>
-                            <img src={email} alt="" className="form-img"/>
-                            <input
-                                className="form-input"
-                                type="email"
-                                ref={emailRef}
-                                required
-                                defaultValue={curUser.email}
-                            />
+                                <img src={email} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="email"
+                                    ref={emailRef}
+                                    required
+                                    defaultValue={curUser.email}
+                                />
                             </div>
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
                             <div>
-                            <img src={pwd} alt="" className="form-img"/>
-                            <input
-                                className="form-input"
-                                type="password"
-                                ref={passwordRef}
-                                placeholder="Leave blank to keep the same"
-                            />
+                                <img src={pwd} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="password"
+                                    ref={passwordRef}
+                                    placeholder="Leave blank to keep the same"
+                                />
                             </div>
                         </Form.Group>
                         <Form.Group id="password-confirm">
                             <Form.Label>Password Confirmation</Form.Label>
                             <div>
-                            <img src={pwd} alt="" className="form-img"/>
-                            <input
-                                className="form-input"
-                                type="password"
-                                ref={passwordConfirmRef}
-                                placeholder="Leave blank to keep the same"
-                            /></div>
+                                <img src={pwd} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="password"
+                                    ref={passwordConfirmRef}
+                                    placeholder="Leave blank to keep the same"
+                                /></div>
                         </Form.Group>
-                        <div className="box-3">
-                            <button disabled={loading} type="submit" className="btn btn-three w-100">
-                                <span>UPDATE</span>
-                            </button>
-                        </div>
+
+                        <Form.Group id="name">
+                            <Form.Label>Name</Form.Label>
+                            <div>
+                                 <img src={nameImg} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="text"
+                                    placeholder="Enter your name"
+                                    value={name}
+                                    name="name"
+                                    onChange={(e)=>setName(e.target.value)}
+                                /></div>
+                        </Form.Group>
+                        <Form.Group id="contact-no">
+                            <Form.Label>Mobile Number</Form.Label>
+                            <div>
+                                 <img src={phImg} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="number"
+                                    value={ph}
+                                    placeholder="Mobile Number"
+                                    name ="ph"
+                                    onChange={(e)=>setPh(e.target.value)}
+                                /></div>
+                            <div className="box-3">
+                                <button disabled={loading} type="submit" className="btn btn-three w-100">
+                                    <span>UPDATE</span>
+                                </button>
+                            </div>
+                        </Form.Group>
                     </Form>
                 </Card.Body>
             </Card>
@@ -98,5 +163,5 @@ export default function UpdateProfile() {
                 <Link to="/profile">Cancel</Link>
             </div>
         </div>
-    )
+)
 }

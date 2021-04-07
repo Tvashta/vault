@@ -18,11 +18,11 @@ export default function AddFile({currentFolder}) {
                 ...prevUploadingFiles,
                 { id: id, name: file.name, progress: 0, error: false },
             ])
+        const path = currentFolder.path.map(e => e.name).join("/");
             const filePath =
                 currentFolder === ROOT_FOLDER
-                    ? `${currentFolder.path.join("/")}/${file.name}`
-                    : `${currentFolder.path.join("/")}/${currentFolder.name}/${file.name}`
-
+                    ? `${path}/${file.name}`
+                    : `${path}/${currentFolder.name}/${file.name}`
             const uploadTask = storage
                 .ref(`/files/${curUser.uid}/${filePath}`)
                 .put(file)
@@ -31,7 +31,6 @@ export default function AddFile({currentFolder}) {
                 "state_changed",
                 snapshot => {
                     const progress = snapshot.bytesTransferred / snapshot.totalBytes
-                    console.log(progress)
                     setUploadingFiles(prevUploadingFiles => {
                         return prevUploadingFiles.map(uploadFile => {
                             if (uploadFile.id === id) {
