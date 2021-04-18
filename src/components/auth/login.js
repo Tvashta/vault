@@ -4,6 +4,8 @@ import {useAuth} from "../../contexts/authcontext";
 import {Link, useHistory} from "react-router-dom";
 import email from "../../images/2.PNG"
 import pwd from "../../images/1.PNG"
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import {auth, uiConfig} from "../../helpers/firebase";
 
 export default function Login() {
     const emailRef = useRef()
@@ -12,6 +14,7 @@ export default function Login() {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -62,6 +65,10 @@ export default function Login() {
                     <div className="w-100 text-center mt-2 form-txt">
                         <Link to="/signup">New user? Sign Up</Link>
                     </div>
+                    <StyledFirebaseAuth
+                        uiConfig={uiConfig}
+                        firebaseAuth={auth}
+                    />
                 </div>
             </Container>
         </div>

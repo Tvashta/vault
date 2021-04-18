@@ -10,6 +10,7 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import ForgotPassword from "./components/auth/forgotpwd";
 import UpdateProfile from "./components/auth/updateprofile";
 import Dashboard from "./components/dashboard";
+import Favourites from "./components/favourites";
 function App() {
   return (
       <div>
@@ -25,6 +26,8 @@ function App() {
 
                   <Route path="/forgot-password" component={ForgotPassword} />
                   <Route path="/update-profile" component={UpdateProfile}/>
+
+                  <Route path="/fav" component={Favourites} />
 
               </Switch>
 

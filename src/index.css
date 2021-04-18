@@ -8,7 +8,7 @@
 }
 
 html{
-  background-color: black;
+  background-color: black !important;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  background-color: black;
+  background-color: black !important;
 
 }
 
@@ -298,6 +298,7 @@ code {
   width: 50vw;
   background-color: rgba(0,0,0,0.3);
   z-index: 1;
+  color: white;
 }
 .empty-folder div h1,div h4, div h5{
   font-weight: lighter;
@@ -367,4 +368,36 @@ code {
 
 .dropdown-item:hover{
   background-color: #05505B!important;
+}
+
+.firebaseui-container{
+  max-width: 374px !important;
+}
+.firebaseui-idp-list>.firebaseui-list-item{
+  margin-bottom: 0;
+  margin-right: 15px !important;
+  display: inline !important;
+}
+.firebaseui-idp-button{
+  max-width: 20px !important;
+  min-height: 30px !important;
+}
+.firebaseui-idp-icon{
+  width: 30px !important;
+}
+
+.firebaseui-idp-text.firebaseui-idp-text-long{
+  display: none !important;
+}
+
+@media  (max-width: 560px){
+  .firebaseui-idp-icon{
+    width: 18px !important;
+  }
+  .firebaseui-idp-list{
+   text-align: center!important;
+  }
+  .firebaseui-idp-button{
+   margin-top: 20px !important;
+  }
 }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, useLocation, useParams} from "react-router-dom";
+import { useLocation, useParams} from "react-router-dom";
 import AddFolder from "./addFolder";
 import {useFolder} from "../helpers/useFolder";
 import Folder from "./folder";
@@ -7,6 +7,7 @@ import FolderPath from "./path";
 import AddFile from "./addFile";
 import rabit from "../images/rabbit.png"
 import File from "./file";
+import NavBar from "./navbar";
 
 export default function Dashboard(){
     const { folderId } = useParams()
@@ -20,15 +21,7 @@ export default function Dashboard(){
         wait(true)
     },3000)
     return <div className="dashboard">
-        <nav className="navbar navbar-dark navbar-expand-sm justify-content-between" >
-            <Link to="/" className="navbar-brand mb-0 h1">V A U L T</Link>
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link to="/profile" className="nav-link">Profile </Link>
-                </li>
-            </ul>
-        </nav>
-
+        <NavBar/>
         <div className="d-flex align-items-center">
             <FolderPath currentFolder={folder}/>
             <AddFolder currentFolder={folder} />

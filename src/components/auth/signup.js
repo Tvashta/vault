@@ -4,6 +4,8 @@ import {useAuth} from "../../contexts/authcontext";
 import {Link, useHistory} from "react-router-dom";
 import email from "../../images/2.PNG";
 import pwd from "../../images/1.PNG";
+import {auth, uiConfig} from "../../helpers/firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 export default function Signup(){
     const emailRef = useRef()
@@ -65,6 +67,10 @@ export default function Signup(){
             <div className="w-100 text-center mt-2 form-txt">
                  <Link to="/login">Already have an account? Login</Link>
             </div>
+            <StyledFirebaseAuth
+                uiConfig={uiConfig}
+                firebaseAuth={auth}
+            />
         </div>
         </Container>
         </div>

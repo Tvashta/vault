@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import {Form, Button, Card, Alert, Container} from "react-bootstrap"
+import {Form, Card, Alert, Container} from "react-bootstrap"
 import { useAuth } from "../../contexts/authcontext"
 import { Link } from "react-router-dom"
 
@@ -27,7 +27,8 @@ export default function ForgotPassword() {
     }
 
     return (
-        <Container className="d-flex align-items-center justify-content-center height-100vh" >
+        <div className="login">
+        <Container className="d-flex align-items-center  height-100vh" >
             <div className="w-100 size-400">
             <Card>
                 <Card.Body>
@@ -37,21 +38,24 @@ export default function ForgotPassword() {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={emailRef} required />
+                            <input className="form-input" type="email" ref={emailRef} required />
                         </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Reset Password
-                        </Button>
+                        <div className="box-3">
+                            <button disabled={loading} type="submit"className="btn btn-three w-100">
+                                <span>RESET PASSWORD</span>
+                            </button>
+                        </div>
                     </Form>
-                    <div className="w-100 text-center mt-3">
+                    <div className="w-100 text-center form-txt mt-3">
                         <Link to="/login">Login</Link>
                     </div>
                 </Card.Body>
             </Card>
-            <div className="w-100 text-center mt-2">
+            <div className="w-100 text-center mt-2 form-txt">
                 Need an account? <Link to="/signup">Sign Up</Link>
             </div>
             </div>
         </Container>
+        </div>
     )
 }

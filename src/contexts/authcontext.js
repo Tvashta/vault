@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {auth} from "../helpers/firebase";
+import {useHistory} from "react-router-dom";
 const AuthContext = React.createContext()
 
 export function useAuth(){
@@ -8,7 +9,8 @@ export function useAuth(){
 
 export function AuthProvider({children}){
     const [curUser, setUser]= useState()
-
+    const history = useHistory()
+    
     function signup(email,pwd){
         return auth.createUserWithEmailAndPassword(email,pwd)
     }
@@ -34,8 +36,9 @@ export function AuthProvider({children}){
     useEffect(()=>{
         return auth.onAuthStateChanged(user=>{
             setUser(user)
+            history.push("/")
         })
-    },[])
+    },[history])
 
     const value={
         curUser,

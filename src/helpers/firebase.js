@@ -23,6 +23,20 @@ export const database = {
     },
     getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 }
+
+export const uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    ],
+    callbacks:{
+        signInSuccessWithAuthResult: () => false
+    }
+}
+
 export const storage = app.storage()
 export default app
 
