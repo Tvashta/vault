@@ -401,3 +401,7 @@ code {
    margin-top: 20px !important;
   }
 }
+
+ol,ul{
+  padding-left: 2.2rem !important;
+}
