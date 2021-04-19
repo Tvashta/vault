@@ -1,0 +1,1028 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit Testing Dashboard Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <div
+      className="d-flex align-items-center"
+    >
+      <AddFolder />
+      <AddFile />
+    </div>
+    <div
+      className="folder-container"
+    >
+      <div
+        className="d-flex flex-wrap"
+      >
+        <div
+          className="p-2"
+          style={
+            Object {
+              "maxWidth": "250px",
+            }
+          }
+        >
+          <Folder />
+        </div>
+      </div>
+      <hr
+        className="line"
+      />
+      <div
+        className="d-flex flex-wrap"
+      >
+        <div
+          className="p-2"
+          style={
+            Object {
+              "maxWidth": "15rem",
+            }
+          }
+        >
+          <File />
+        </div>
+      </div>
+    </div>
+    <div
+      className="empty-folder"
+    >
+      <div>
+        <h1>
+          Oops! This folder is empty.
+        </h1>
+        <h4>
+          Add content using the buttons in the bottom-right corner.
+        </h4>
+        <h5>
+          Till then have a look at this cute bunny...
+        </h5>
+      </div>
+      <img
+        alt=""
+        src="rabbit.png"
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Favourites Proper details must be rendered 1`] = `
+Array [
+  <div>
+    <NavBar />
+    <div
+      className="folder-container"
+    >
+      <div
+        className="d-flex flex-wrap"
+      >
+        <div
+          className="p-2"
+          style={
+            Object {
+              "maxWidth": "15rem",
+            }
+          }
+        >
+          <File />
+        </div>
+      </div>
+    </div>
+    <div
+      className="empty-folder"
+    >
+      <div>
+        <h1>
+          Oops! This folder is empty.
+        </h1>
+        <h4>
+          Add content using the buttons in the bottom-right corner.
+        </h4>
+        <h5>
+          Till then have a look at this cute bunny...
+        </h5>
+      </div>
+      <img
+        alt=""
+        src="rabbit.png"
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing File Proper details must be rendered 1`] = `
+Array [
+  <div>
+    <a
+      className="file"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        className="img-zoom"
+      >
+        <img />
+      </div>
+      <p
+        className="text-truncate"
+      >
+        File name
+      </p>
+    </a>
+    <div
+      className="drop-down"
+    >
+      <button
+        className="dropdown-item"
+      >
+        Favourite
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Folder Proper details must be rendered 1`] = `
+Array [
+  <div>
+    <Modal
+      animation={true}
+      autoFocus={true}
+      backdrop={true}
+      dialogAs={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        }
+      }
+      enforceFocus={true}
+      keyboard={true}
+      restoreFocus={true}
+      show={false}
+    >
+      <ModalBody>
+        <Button
+          active={false}
+          className="btn-x"
+          disabled={false}
+          variant="secondary"
+        >
+          x
+        </Button>
+        <h3>
+          Are you sure?
+        </h3>
+        <p>
+          Deleting would erase all contents of this folder permanently
+        </p>
+      </ModalBody>
+      <ModalFooter>
+        <Button
+          active={false}
+          disabled={false}
+          variant="light"
+        >
+          No! Go back
+        </Button>
+        <Button
+          active={false}
+          disabled={false}
+          variant="danger"
+        >
+          Yes! Delete
+        </Button>
+      </ModalFooter>
+    </Modal>
+    <Modal
+      animation={false}
+      autoFocus={true}
+      backdrop={true}
+      dialogAs={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        }
+      }
+      enforceFocus={true}
+      keyboard={true}
+      restoreFocus={true}
+      show={false}
+    >
+      <Button
+        active={false}
+        className="btn-x"
+        disabled={false}
+        variant="secondary"
+      >
+        x
+      </Button>
+      <Form
+        inline={false}
+      >
+        <ModalBody>
+          <FormGroup>
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              New folder Name
+            </FormLabel>
+            <FormControl
+              required={true}
+              type="text"
+            />
+          </FormGroup>
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            active={false}
+            disabled={false}
+            type="submit"
+            variant="success"
+          >
+            Rename
+          </Button>
+          <Button
+            active={false}
+            disabled={false}
+            variant="outline-dark"
+          >
+            Close
+          </Button>
+        </ModalFooter>
+      </Form>
+    </Modal>
+    <Button
+      active={false}
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      className="text-truncate w-100"
+      disabled={false}
+      variant="outline-light"
+    >
+      <span
+        className="btn-label"
+      >
+        Name
+      </span>
+    </Button>
+    <div
+      className="drop-down"
+    >
+      <button
+        className="dropdown-item"
+      >
+        Rename
+      </button>
+      <button
+        className="dropdown-item"
+      >
+        Delete
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Forgot Password Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="login"
+  >
+    <Container
+      className="d-flex align-items-center  height-100vh"
+      fluid={false}
+    >
+      <div
+        className="w-100 size-400"
+      >
+        <Card
+          body={false}
+        >
+          <CardBody>
+            <h2
+              className="text-center mb-4"
+            >
+              Password Reset
+            </h2>
+            <Alert
+              closeLabel="Close alert"
+              show={true}
+              transition={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "defaultProps": Object {
+                    "appear": false,
+                    "in": false,
+                    "mountOnEnter": false,
+                    "timeout": 300,
+                    "unmountOnExit": false,
+                  },
+                  "render": [Function],
+                }
+              }
+              variant="danger"
+            >
+              error
+            </Alert>
+            <Alert
+              closeLabel="Close alert"
+              show={true}
+              transition={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "defaultProps": Object {
+                    "appear": false,
+                    "in": false,
+                    "mountOnEnter": false,
+                    "timeout": 300,
+                    "unmountOnExit": false,
+                  },
+                  "render": [Function],
+                }
+              }
+              variant="success"
+            >
+              message
+            </Alert>
+            <Form
+              inline={false}
+            >
+              <FormGroup
+                id="email"
+              >
+                <FormLabel
+                  column={false}
+                  srOnly={false}
+                >
+                  Email
+                </FormLabel>
+                <input
+                  className="form-input"
+                  required={true}
+                  type="email"
+                />
+              </FormGroup>
+              <div
+                className="box-3"
+              >
+                <button
+                  className="btn btn-three w-100"
+                  type="submit"
+                >
+                  <span>
+                    RESET PASSWORD
+                  </span>
+                </button>
+              </div>
+            </Form>
+            <div
+              className="w-100 text-center form-txt mt-3"
+            >
+              <Link
+                to="/login"
+              >
+                Login
+              </Link>
+            </div>
+          </CardBody>
+        </Card>
+        <div
+          className="w-100 text-center mt-2 form-txt"
+        >
+          Need an account? 
+          <Link
+            to="/signup"
+          >
+            Sign Up
+          </Link>
+        </div>
+      </div>
+    </Container>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Login Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="login"
+  >
+    <h1>
+      V A U L T
+    </h1>
+    <Container
+      className="d-flex align-items-center height-100vh"
+      fluid={false}
+    >
+      <div
+        className="w-100 size-400"
+      >
+        <Card
+          body={false}
+        >
+          <CardBody>
+            <h2
+              className="text-center mb-4"
+            >
+              Sign Up
+            </h2>
+            <Alert
+              closeLabel="Close alert"
+              show={true}
+              transition={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "defaultProps": Object {
+                    "appear": false,
+                    "in": false,
+                    "mountOnEnter": false,
+                    "timeout": 300,
+                    "unmountOnExit": false,
+                  },
+                  "render": [Function],
+                }
+              }
+              variant="danger"
+            >
+              error
+            </Alert>
+            }
+            <Form
+              inline={false}
+            >
+              <FormGroup
+                id="email"
+              >
+                <img
+                  alt=""
+                  className="form-img"
+                  src="2.PNG"
+                />
+                <input
+                  className="form-input"
+                  required={true}
+                  type="email"
+                />
+              </FormGroup>
+              <FormGroup
+                id="password"
+              >
+                <img
+                  alt=""
+                  className="form-img"
+                  src="1.PNG"
+                />
+                <input
+                  className="form-input"
+                  required={true}
+                  type="password"
+                />
+              </FormGroup>
+              <div
+                className="box-3"
+              >
+                <button
+                  className="btn btn-three w-100"
+                  type="submit"
+                >
+                  <span>
+                    LOGIN
+                  </span>
+                </button>
+              </div>
+            </Form>
+          </CardBody>
+        </Card>
+        <div
+          className="w-100 text-center mt-2 form-txt"
+        >
+          <Link
+            to="/signup"
+          >
+            Need an account? SignUp
+          </Link>
+        </div>
+        <e />
+      </div>
+    </Container>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Navigation bar Proper details must be rendered 1`] = `
+Array [
+  <nav
+    className="navbar navbar-dark navbar-expand-sm justify-content-between"
+  >
+    <Link
+      className="navbar-brand mb-0 h1"
+      to="/"
+    >
+      V A U L T
+    </Link>
+    <ul
+      className="navbar-nav"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link"
+          to="/profile"
+        >
+          Profile 
+        </Link>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link"
+          to="/fav"
+        >
+          Favourites 
+        </Link>
+      </li>
+    </ul>
+  </nav>,
+]
+`;
+
+exports[`Unit Testing Path Proper details must be rendered 1`] = `
+Array [
+  <Breadcrumb
+    className="flex-grow-1"
+    label="breadcrumb"
+    listProps={
+      Object {
+        "className": "bg-trans m-0 ml-6",
+      }
+    }
+  >
+    <BreadcrumbItem
+      active={false}
+      className="text-truncate d-inline-block path-item"
+      linkAs={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      linkProps={Object {}}
+      style={
+        Object {
+          "maxWidth": "150px",
+        }
+      }
+    >
+      Folder Name
+    </BreadcrumbItem>
+    <BreadcrumbItem
+      active={true}
+      className="text-truncate d-inline-block path-item"
+      linkProps={Object {}}
+      style={
+        Object {
+          "maxWidth": "200px",
+        }
+      }
+    >
+      Folder Name
+    </BreadcrumbItem>
+  </Breadcrumb>,
+]
+`;
+
+exports[`Unit Testing Profile Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="profile"
+  >
+    <div
+      className="back-btn"
+    >
+      <Button
+        active={false}
+        as={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "propTypes": Object {
+              "innerRef": [Function],
+              "onClick": [Function],
+              "replace": [Function],
+              "target": [Function],
+              "to": [Function],
+            },
+            "render": [Function],
+          }
+        }
+        className="text-truncate w-100"
+        disabled={false}
+        to="/"
+        variant="outline-light"
+      >
+        <span
+          className="btn-label"
+        >
+          Back
+        </span>
+      </Button>
+    </div>
+    <Card
+      body={false}
+    >
+      <CardBody>
+        <h2
+          className="text-center mb-4"
+        >
+          Profile
+        </h2>
+        <Alert
+          closeLabel="Close alert"
+          show={true}
+          transition={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "defaultProps": Object {
+                "appear": false,
+                "in": false,
+                "mountOnEnter": false,
+                "timeout": 300,
+                "unmountOnExit": false,
+              },
+              "render": [Function],
+            }
+          }
+          variant="danger"
+        >
+          error
+        </Alert>
+        }
+        <p>
+          <strong>
+            Email:
+          </strong>
+           email
+        </p>
+        <p>
+          <strong>
+            Name:
+          </strong>
+           name
+        </p>
+        <p>
+          <strong>
+            Phone Number:
+          </strong>
+           ph
+        </p>
+        <Link
+          className="box3"
+          to="/update-profile"
+        >
+          <button
+            className="btn btn-three w-100 mt-3"
+          >
+            <span>
+              UPDATE PROFILE
+            </span>
+          </button>
+        </Link>
+      </CardBody>
+    </Card>
+    <div
+      className="w-100 text-center mt-2"
+    >
+      <Button
+        active={false}
+        className="logout-btn"
+        disabled={false}
+        variant="link"
+      >
+        Log Out
+      </Button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Signup Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="login"
+  >
+    <h1>
+      V A U L T
+    </h1>
+    <Container
+      className="d-flex align-items-center height-100vh"
+      fluid={false}
+    >
+      <div
+        className="w-100 size-400"
+      >
+        <Card
+          body={false}
+        >
+          <CardBody>
+            <h2
+              className="text-center mb-4"
+            >
+              Sign Up
+            </h2>
+            <Alert
+              closeLabel="Close alert"
+              show={true}
+              transition={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "defaultProps": Object {
+                    "appear": false,
+                    "in": false,
+                    "mountOnEnter": false,
+                    "timeout": 300,
+                    "unmountOnExit": false,
+                  },
+                  "render": [Function],
+                }
+              }
+              variant="danger"
+            >
+              error
+            </Alert>
+            }
+            <Form
+              inline={false}
+            >
+              <FormGroup
+                id="email"
+              >
+                <img
+                  alt=""
+                  className="form-img"
+                  src="2.PNG"
+                />
+                <input
+                  className="form-input"
+                  required={true}
+                  type="email"
+                />
+              </FormGroup>
+              <FormGroup
+                id="password"
+              >
+                <img
+                  alt=""
+                  className="form-img"
+                  src="1.PNG"
+                />
+                <input
+                  className="form-input"
+                  required={true}
+                  type="password"
+                />
+              </FormGroup>
+              <FormGroup
+                id="password-confirm"
+              >
+                <img
+                  alt=""
+                  className="form-img"
+                  src="1.PNG"
+                />
+                <input
+                  className="form-input"
+                  required={true}
+                  type="password"
+                />
+              </FormGroup>
+              <div
+                className="box-3"
+              >
+                <button
+                  className="btn btn-three w-100"
+                  type="submit"
+                >
+                  <span>
+                    SIGN UP
+                  </span>
+                </button>
+              </div>
+            </Form>
+          </CardBody>
+        </Card>
+        <div
+          className="w-100 text-center mt-2 form-txt"
+        >
+          <Link
+            to="/login"
+          >
+            Already have an account? Login
+          </Link>
+        </div>
+        <e />
+      </div>
+    </Container>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Update Profile Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="profile"
+  >
+    <Card
+      body={false}
+    >
+      <CardBody>
+        <h2
+          className="text-center mb-4"
+        >
+          Update Profile
+        </h2>
+        <Alert
+          closeLabel="Close alert"
+          show={true}
+          transition={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "defaultProps": Object {
+                "appear": false,
+                "in": false,
+                "mountOnEnter": false,
+                "timeout": 300,
+                "unmountOnExit": false,
+              },
+              "render": [Function],
+            }
+          }
+          variant="danger"
+        >
+          error
+        </Alert>
+        <Form
+          inline={false}
+        >
+          <FormGroup
+            id="email"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Email
+            </FormLabel>
+            <div>
+              <img
+                alt=""
+                className="form-img"
+                src="2.PNG"
+              />
+              <input
+                className="form-input"
+                type="email"
+              />
+            </div>
+          </FormGroup>
+          <FormGroup
+            id="password"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Password
+            </FormLabel>
+            <div>
+              <img
+                alt=""
+                className="form-img"
+                src="1.PNG"
+              />
+              <input
+                className="form-input"
+                placeholder="Leave blank to keep the same"
+                type="password"
+              />
+            </div>
+          </FormGroup>
+          <FormGroup
+            id="password-confirm"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Password Confirmation
+            </FormLabel>
+            <div>
+              <img
+                alt=""
+                className="form-img"
+                src="1.PNG"
+              />
+              <input
+                className="form-input"
+                placeholder="Leave blank to keep the same"
+                type="password"
+              />
+            </div>
+          </FormGroup>
+          <FormGroup
+            id="name"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Name
+            </FormLabel>
+            <div>
+              <img
+                alt=""
+                className="form-img"
+                src="name.PNG"
+              />
+              <input
+                className="form-input"
+                name="name"
+                placeholder="Enter your name"
+                type="text"
+              />
+            </div>
+          </FormGroup>
+          <FormGroup
+            id="contact-no"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Mobile Number
+            </FormLabel>
+            <div>
+              <img
+                alt=""
+                className="form-img"
+                src="ph.PNG"
+              />
+              <input
+                className="form-input"
+                name="ph"
+                placeholder="Mobile Number"
+                type="number"
+              />
+            </div>
+            <div
+              className="box-3"
+            >
+              <button
+                className="btn btn-three w-100"
+                type="submit"
+              >
+                <span>
+                  UPDATE
+                </span>
+              </button>
+            </div>
+          </FormGroup>
+        </Form>
+      </CardBody>
+    </Card>
+    <div
+      className="w-100 text-center mt-2 form-txt"
+    >
+      <Link
+        to="/profile"
+      >
+        Cancel
+      </Link>
+    </div>
+  </div>,
+]
+`;
