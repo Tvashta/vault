@@ -42,7 +42,7 @@ export default function Folder({folder}) {
         database.folders.doc(folder.id).update({
             ...folder,
             name
-        }).then().catch(e=>console.log(e))
+        }).then().catch(err=>console.log(err))
         setOpen(false)
         setState(false)
     }
@@ -69,15 +69,15 @@ export default function Folder({folder}) {
         childRef.delete().then().catch((e)=>console.log(e))
     }
 
-    function recursiveDeleteFolder(folder){
-        deleteFile(folder.id)
-        database.folders.where("user","==", curUser.uid).where("parentId", "==", folder.id).get()
+    function recursiveDeleteFolder(fol){
+        deleteFile(fol.id)
+        database.folders.where("user","==", curUser.uid).where("parentId", "==", fol.id).get()
             .then((query)=>{
                 query.forEach(child=>{
                     recursiveDeleteFolder(child)
                 })
             })
-        database.folders.doc(folder.id).delete().then().catch((error) => {
+        database.folders.doc(fol.id).delete().then().catch((error) => {
             console.error("Error removing document: ", error);
         });
     }

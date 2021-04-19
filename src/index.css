@@ -116,11 +116,11 @@ code {
 }
 
 .card-body h2{
-  font-family: Brave81;
+  font-family: Brave81, sans-serif;
 }
 
 .login h1{
-  font-family: Alphacentauri;
+  font-family: Alphacentauri, monospace;
   color: white;
   position: absolute;
   writing-mode: vertical-lr;
@@ -136,7 +136,7 @@ code {
 }
 
 .navbar-brand{
-  font-family: Alphacentauri;
+  font-family: Alphacentauri, monospace;
   font-size: 2rem !important;
 }
 .btn.btn-outline-light {
@@ -316,12 +316,6 @@ code {
   object-fit: cover;
 }
 
-
-.file p{
-  display: inline-block;
-  width: 7rem;
-}
-
 .img-zoom {
   width: 7rem;
   height: 7rem;
@@ -340,6 +334,8 @@ code {
 .file p{
   font-size: 1.1rem;
   color: #00A3A3;
+  display: inline-block;
+  width: 7rem;
 }
 
 .line{

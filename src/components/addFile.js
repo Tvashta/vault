@@ -13,12 +13,12 @@ export default function AddFile({currentFolder}) {
     const id = v4()
     function handleUpload(e){
             const file = e.target.files[0]
-            if (currentFolder == null || file == null) return
+            if (!currentFolder|| !file) return
             setUploadingFiles(prevUploadingFiles => [
                 ...prevUploadingFiles,
                 { id: id, name: file.name, progress: 0, error: false },
             ])
-        const path = currentFolder.path.map(e => e.name).join("/");
+        const path = currentFolder.path.map(f => f.name).join("/");
             const filePath =
                 currentFolder === ROOT_FOLDER
                     ? `${path}/${file.name}`

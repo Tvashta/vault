@@ -7,8 +7,8 @@ import Signup from "./components/auth/signup";
 import Profile from "./components/auth/profile";
 import Login from "./components/auth/login";
 import PrivateRoute from "./helpers/PrivateRoute";
-import ForgotPassword from "./components/auth/forgotpwd";
-import UpdateProfile from "./components/auth/updateprofile";
+import ForgotPassword from "./components/auth/forgotPassword";
+import UpdateProfile from "./components/auth/updateProfile";
 import Dashboard from "./components/dashboard";
 import Favourites from "./components/favourites";
 function App() {

@@ -20,8 +20,8 @@ export default function Profile() {
                     setPh(doc.data().ph)
                 });
             })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
+            .catch((err) => {
+                console.log("Error getting documents: ", err);
             });
     },[curUser])
 

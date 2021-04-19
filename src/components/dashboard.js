@@ -3,7 +3,7 @@ import { useLocation, useParams} from "react-router-dom";
 import AddFolder from "./addFolder";
 import {useFolder} from "../helpers/useFolder";
 import Folder from "./folder";
-import FolderPath from "./path";
+import FolderPath from "./folderPath";
 import AddFile from "./addFile";
 import rabit from "../images/rabbit.png"
 import File from "./file";

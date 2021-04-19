@@ -33,7 +33,7 @@ export default function File({ file }) {
         database.files.doc(file.id).update({
             ...file,
             favourite: true,
-        }).then().catch(e=>console.log(e))
+        }).then().catch(err=>console.log(err))
         setOpen(false)
     }
 

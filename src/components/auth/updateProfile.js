@@ -28,8 +28,8 @@ export default function UpdateProfile() {
                     setName(doc.data().name)
                 });
             })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
+            .catch((err) => {
+                console.log("Error getting documents: ", err);
             });
     },[curUser])
 
@@ -64,8 +64,8 @@ export default function UpdateProfile() {
                     database.users.doc(doc.id).update({name, ph, user: curUser.uid})
                 });
             })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
+            .catch((err) => {
+                console.log("Error getting documents: ", err);
             });
 
         Promise.all(promises)
