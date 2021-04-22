@@ -17,11 +17,9 @@ export default function Signup(){
     const history= useHistory()
     async function handleSubmit(e) {
         e.preventDefault()
-
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError("Passwords do not match")
         }
-
         try {
             setError("")
             setLoading(true)
@@ -60,7 +58,6 @@ export default function Signup(){
                                 <span>SIGN UP</span>
                             </button>
                         </div>
-
                     </Form>
                 </Card.Body>
             </Card>

@@ -5,11 +5,15 @@ import { database, storage} from "../helpers/firebase";
 import {ROOT_FOLDER} from "../helpers/useFolder";
 import {useAuth} from "../contexts/authcontext";
 
+
 export default function Folder({folder}) {
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [modalState, setState]=useState(false)
     const [name, setName] =useState("")
+    const [share, setShare]=useState(false)
+    const [users, setUsers]=useState([])
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const node = useRef();
@@ -20,6 +24,23 @@ export default function Folder({folder}) {
         }
         setOpen(false);
     }
+
+    useEffect(()=>{
+        let users1=[]
+        database.users.where("user","==",curUser.uid).get()
+            .then(snap=>{
+                snap.forEach(i=>{
+                    database.users.where("org","==",i.data().org).get()
+                        .then(snap1=>{
+                            snap1.forEach(j=>{
+                                if (!users1.includes(j.data()) && j.data().user!==curUser.uid)
+                                   users1.push(j.data())
+                            })
+                        })
+                })
+            })
+        setUsers(users1)
+    },[curUser.uid])
 
     useEffect(() => {
         if (open) {
@@ -105,6 +126,10 @@ export default function Folder({folder}) {
         recursiveDeleteFolder(folder)
     }
 
+    function shareFolder(){
+
+    }
+
     return (
         <div>
             <Modal animation={false} show={show} onHide={handleClose}>
@@ -113,7 +138,8 @@ export default function Folder({folder}) {
                         x
                     </Button>
                     <h3>Are you sure?</h3>
-                    <p>Deleting would erase all contents of this folder permanently</p></Modal.Body>
+                    <p>Deleting would erase all contents of this folder permanently</p>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="light" onClick={handleClose}>
                         No! Go back
@@ -148,6 +174,34 @@ export default function Folder({folder}) {
                     </Modal.Footer>
                 </Form>
             </Modal>
+            <Modal animation={false} show={share} onHide={()=>setShare(false)}>
+                <Modal.Body>
+                    <Button variant="secondary" className="btn-x" onClick={()=>setShare(false)}>
+                        x
+                    </Button>
+                    <h3>Share this folder</h3>
+                    <p>Click on the plus sign to add users</p>
+                    <div className="input-group">
+                        <select className="custom-select" id="inputGroupSelect04">
+                            <option defaultValue="1">Add user to folder</option>
+                            {users.map((val,i)=> (<option key={i} value={val.user}> {val.name}</option>))}
+                        </select>
+                        <div className="input-group-append">
+                            <button className="btn btn-outline-secondary" type="button">Button</button>
+                        </div>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={()=>setShare(false)}>
+                        No! Go back
+                    </Button>
+                    <Button variant="success" onClick={shareFolder}>
+                        Yes! Share em all!
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
             <Button
                 to={{
                     pathname: `/folder/${folder.id}`,
@@ -170,6 +224,10 @@ export default function Folder({folder}) {
                     setOpen(false)
                     handleShow()
                 }}>Delete</button>
+                <button className="dropdown-item" onClick={()=>{
+                    setShare(true)
+                    setOpen(false)
+                }}>Share</button>
             </div>
             }
         </div>

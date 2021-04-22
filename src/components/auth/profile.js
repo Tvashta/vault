@@ -9,6 +9,7 @@ export default function Profile() {
     const { curUser, logout } = useAuth()
     const [name, setName] = useState("")
     const [ph, setPh] = useState("")
+    const [org, setOrg]=useState("")
     const history = useHistory()
 
     useEffect(()=>{
@@ -18,6 +19,7 @@ export default function Profile() {
                 querySnapshot.forEach((doc) => {
                     setName(doc.data().name)
                     setPh(doc.data().ph)
+                    setOrg(doc.data().org)
                 });
             })
             .catch((err) => {
@@ -54,6 +56,7 @@ export default function Profile() {
                     <p><strong>Email:</strong> {curUser.email}</p>
                     <p><strong>Name:</strong> {name}</p>
                     <p><strong>Phone Number:</strong> {ph}</p>
+                    <p><strong>Organization:</strong> {org}</p>
                     <Link to="/update-profile" className="box3">
                         <button className="btn btn-three w-100 mt-3">
                             <span>UPDATE PROFILE</span>

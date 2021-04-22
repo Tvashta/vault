@@ -18,7 +18,7 @@ export default function UpdateProfile() {
     const history = useHistory()
     const [name, setName] = useState("")
     const [ph, setPh] = useState("")
-
+    const [org, setOrg] = useState("")
     useEffect(()=>{
         database.users.where("user", "==", curUser.uid)
             .get()
@@ -26,6 +26,7 @@ export default function UpdateProfile() {
                 querySnapshot.forEach((doc) => {
                     setPh(doc.data().ph)
                     setName(doc.data().name)
+                    setOrg(doc.data().org)
                 });
             })
             .catch((err) => {
@@ -57,11 +58,12 @@ export default function UpdateProfile() {
                     database.users.add({
                         name,
                         ph,
+                        org,
                         user: curUser.uid
                     })
                 }
                 querySnapshot.forEach((doc) => {
-                    database.users.doc(doc.id).update({name, ph, user: curUser.uid})
+                    database.users.doc(doc.id).update({name, ph, org, user: curUser.uid})
                 });
             })
             .catch((err) => {
@@ -138,6 +140,21 @@ export default function UpdateProfile() {
                                     onChange={(e)=>setName(e.target.value)}
                                 /></div>
                         </Form.Group>
+
+                        <Form.Group id="name">
+                            <Form.Label>Organization</Form.Label>
+                            <div>
+                                <img src={nameImg} alt="" className="form-img"/>
+                                <input
+                                    className="form-input"
+                                    type="text"
+                                    placeholder="Enter your orgnaization"
+                                    value={org}
+                                    name="org"
+                                    onChange={(e)=>setOrg(e.target.value)}
+                                /></div>
+                        </Form.Group>
+
                         <Form.Group id="contact-no">
                             <Form.Label>Mobile Number</Form.Label>
                             <div>
