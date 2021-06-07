@@ -12,6 +12,9 @@ function NavBar(){
             <li className="nav-item">
                 <Link to="/fav" className="nav-link">Favourites </Link>
             </li>
+            <li className="nav-item">
+                <Link to="/shared" className="nav-link">Shared with Me </Link>
+            </li>
         </ul>
     </nav>
 }

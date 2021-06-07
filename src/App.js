@@ -11,6 +11,7 @@ import ForgotPassword from "./components/auth/forgotPassword";
 import UpdateProfile from "./components/auth/updateProfile";
 import Dashboard from "./components/dashboard";
 import Favourites from "./components/favourites";
+import Shared from "./components/shared";
 function App() {
   return (
       <div>
@@ -28,6 +29,7 @@ function App() {
                   <Route path="/update-profile" component={UpdateProfile}/>
 
                   <Route path="/fav" component={Favourites} />
+                  <Route path="/shared" component={Shared} />
 
               </Switch>
 

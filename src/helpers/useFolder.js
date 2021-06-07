@@ -79,6 +79,7 @@ export function useFolder(folderId = null, folder = null) {
     }, [folderId])
 
     useEffect(() => {
+        if(folderId===null)
         return database.folders
             .where("parentId", "==", folderId)
             .where("user", "==", curUser.uid)
@@ -89,9 +90,19 @@ export function useFolder(folderId = null, folder = null) {
                     payload: { childFolders: snapshot.docs.map(database.formatDoc) },
                 })
             })
+        else
+            return database.folders
+                .where("parentId", "==", folderId)
+                .onSnapshot(snapshot => {
+                    dispatch({
+                        type: ACTIONS.SET_CHILD_FOLDERS,
+                        payload: { childFolders: snapshot.docs.map(database.formatDoc) },
+                    })
+                })
     }, [folderId, curUser])
 
     useEffect(() => {
+        if(folderId===null)
         return (
             database.files
                 .where("folderId", "==", folderId)
@@ -103,6 +114,17 @@ export function useFolder(folderId = null, folder = null) {
                     })
                 })
         )
+        else
+            return (
+                database.files
+                    .where("folderId", "==", folderId)
+                    .onSnapshot(snapshot => {
+                        dispatch({
+                            type: ACTIONS.SET_CHILD_FILES,
+                            payload: { childFiles: snapshot.docs.map(database.formatDoc) },
+                        })
+                    })
+            )
     }, [folderId, curUser])
 
     return state

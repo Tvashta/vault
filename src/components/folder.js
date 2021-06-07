@@ -13,6 +13,8 @@ export default function Folder({folder}) {
     const [name, setName] =useState("")
     const [share, setShare]=useState(false)
     const [users, setUsers]=useState([])
+    const [shared, setShared]= useState([])
+    const [user, setUser]= useState("")
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -24,7 +26,7 @@ export default function Folder({folder}) {
         }
         setOpen(false);
     }
-
+    
     useEffect(()=>{
         let users1=[]
         database.users.where("user","==",curUser.uid).get()
@@ -54,8 +56,13 @@ export default function Folder({folder}) {
     }, [open]);
 
     function handleRightClick(e) {
-        e.preventDefault()
-        setOpen(true)
+        if(folder.user=== curUser.uid){
+            database.folders.doc(folder.id).get()
+                .then( d => setShared([...new Set(shared.concat(d.data().shared))]))
+                .catch(err=> console.log(err))
+            e.preventDefault()
+            setOpen(true)
+        }
     }
 
     function renameFolder(e){
@@ -127,7 +134,15 @@ export default function Folder({folder}) {
     }
 
     function shareFolder(){
+        let share=shared.filter(x=> x!==undefined)
+        database.folders.doc(folder.id).update("shared",share)
+            .then(()=>setShare(false)).catch(err=> console.log(err))
+    }
 
+    function addUser(){
+        if (user && user!=='1'&&  !shared.includes(user) && users.filter(x=> x.user===user).length!==0){
+            setShared([...shared, user])
+        }
     }
 
     return (
@@ -180,14 +195,24 @@ export default function Folder({folder}) {
                         x
                     </Button>
                     <h3>Share this folder</h3>
+                    {users && shared && shared.filter(x=> x!==undefined).map(x=> <div className="shareItems" key={x}>
+                        <button onClick={()=>setShared(shared.filter(y => y!==x))}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f05454"
+                                 className="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                        </button>
+                        <p>{users.filter(y=> y.user===x)[0].name}</p>
+                    </div>)}
                     <p>Click on the plus sign to add users</p>
                     <div className="input-group">
-                        <select className="custom-select" id="inputGroupSelect04">
+                        <select className="custom-select" id="inputGroupSelect04" onChange={(e)=>setUser(e.target.value)}>
                             <option defaultValue="1">Add user to folder</option>
                             {users.map((val,i)=> (<option key={i} value={val.user}> {val.name}</option>))}
                         </select>
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">Button</button>
+                            <button className="btn btn-outline-secondary" type="button" onClick={addUser}>Add</button>
                         </div>
                     </div>
                 </Modal.Body>
