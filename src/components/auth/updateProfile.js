@@ -6,7 +6,8 @@ import email from "../../images/2.PNG"
 import pwd from "../../images/1.PNG"
 import phImg from "../../images/ph.PNG"
 import nameImg from "../../images/name.PNG"
-import {database} from "../../helpers/firebase";
+import {database, storage} from "../../helpers/firebase";
+import profile from "../../images/profile.jpg";
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -15,6 +16,7 @@ export default function UpdateProfile() {
     const {curUser, updatePassword, updateEmail} = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+    const [img, setImg] = useState('')
     const history = useHistory()
     const [name, setName] = useState("")
     const [ph, setPh] = useState("")
@@ -27,6 +29,7 @@ export default function UpdateProfile() {
                     setPh(doc.data().ph)
                     setName(doc.data().name)
                     setOrg(doc.data().org)
+                    setImg(doc.data().profile)
                 });
             })
             .catch((err) => {
@@ -83,6 +86,24 @@ export default function UpdateProfile() {
 
     }
 
+    function uploadImg(e){
+        const file = e.target.files[0]
+        storage
+            .ref(`/users/${curUser.uid}`)
+            .put(file)
+            .then((snapshot)=>{
+                snapshot.ref.getDownloadURL().then(url => {
+                    console.log(url)
+                    database.users.where('user','==', curUser.uid).get().then((snap)=>{
+                        snap.forEach(x =>{
+                            database.users.doc(x.id).update('profile', url).then(r => setImg(url))
+                        })
+                    })
+
+                })
+            });
+    }
+
     return (
         <div className="profile">
             <Card>
@@ -90,6 +111,12 @@ export default function UpdateProfile() {
                     <h2 className="text-center mb-4">Update Profile</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
+                        <label htmlFor="photo-upload" className="custom-file-upload fas">
+                            <div className="img-wrap img-upload">
+                                <img src={img?img:profile} alt='profile'/>
+                            </div>
+                            <input id="photo-upload" type="file" onChange={(e)=>uploadImg(e)}/>
+                        </label>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
                             <div>

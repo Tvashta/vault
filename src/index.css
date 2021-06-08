@@ -7,6 +7,11 @@
   src: url("/src/fonts/BraveEightyoneRegular.ttf");
 }
 
+@font-face {
+  font-family: "FontAwesome";
+ src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2") format("woff2");
+}
+
 html{
   background-color: black !important;
 }
@@ -119,6 +124,10 @@ code {
   font-family: Brave81, sans-serif;
 }
 
+.profile .card-body h2{
+  padding-top: 10%;
+  padding-bottom: 7%;
+}
 .login h1{
   font-family: Alphacentauri, monospace;
   color: white;
@@ -409,4 +418,62 @@ code {
   background-color: rgba(0,0,0,0);
   box-shadow: none;
   border: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 6px;
+  cursor: pointer;
+  background: linear-gradient(270deg, #3fa1a9, #79f1a4);
+  margin-bottom: 25px;
+}
+
+.img-wrap{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.img-upload:before{
+  content: "\f093";
+  font-family: FontAwesome, serif;
+  font-size: 120px;
+  position: absolute;
+  padding-top: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #63d3a6;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000;
+}
+.img-upload:hover:before{
+  opacity: 1;
+}
+.img-wrap img {
+  display: block;
+  width: auto;
+  height: 100%;
+  transform: translateX(-20%);
+  object-fit: cover;
+}
+
+label{
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #676767;
 }
