@@ -13,9 +13,7 @@ function Shared(){
             .then(snap => {
                 snap.forEach(x=> share.push( {id: x.id, ...x.data()}))
                 setShared([...new Set(share)])
-                console.log(share, [...new Set(share)])
             })
-
     },[curUser])
     return<div>
         <NavBar/>

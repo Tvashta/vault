@@ -479,9 +479,16 @@ label{
 
 .search-bar input{
   width: 30vw;
+  margin-right: 1vw;
 }
 
 .search-bar svg{
   margin-top: 7px;
   margin-left: 3px;
+}
+
+.search{
+  width: 70vw;
+  padding: 1%;
+  margin: 2% auto;
 }

@@ -12,6 +12,7 @@ import UpdateProfile from "./components/auth/updateProfile";
 import Dashboard from "./components/dashboard";
 import Favourites from "./components/favourites";
 import Shared from "./components/shared";
+import Search from "./components/search";
 function App() {
   return (
       <div>
@@ -30,6 +31,7 @@ function App() {
 
                   <Route path="/fav" component={Favourites} />
                   <Route path="/shared" component={Shared} />
+                  <Route path="/search" component={Search} />
 
               </Switch>
 
