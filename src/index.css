@@ -492,3 +492,9 @@ label{
   padding: 1%;
   margin: 2% auto;
 }
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

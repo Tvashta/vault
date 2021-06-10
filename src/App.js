@@ -13,6 +13,8 @@ import Dashboard from "./components/dashboard";
 import Favourites from "./components/favourites";
 import Shared from "./components/shared";
 import Search from "./components/search";
+import FAQ from "./components/faq";
+import Contact from "./components/contact";
 function App() {
   return (
       <div>
@@ -32,6 +34,9 @@ function App() {
                   <Route path="/fav" component={Favourites} />
                   <Route path="/shared" component={Shared} />
                   <Route path="/search" component={Search} />
+
+                  <Route path="/faq" component={FAQ} />
+                  <Route path="/contact" component={Contact} />
 
               </Switch>
 

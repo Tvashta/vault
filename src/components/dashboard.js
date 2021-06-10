@@ -8,6 +8,7 @@ import AddFile from "./addFile";
 import rabit from "../images/rabbit.png"
 import File from "./file";
 import NavBar from "./navbar";
+import Footer from "./footer";
 
 export default function Dashboard(){
     const { folderId } = useParams()
@@ -76,6 +77,6 @@ export default function Dashboard(){
             <img src={rabit} alt=""/>
             </div>
         ))}
-
+        <Footer/>
     </div>
 }
