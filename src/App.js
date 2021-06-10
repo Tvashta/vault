@@ -15,36 +15,40 @@ import Shared from "./components/shared";
 import Search from "./components/search";
 import FAQ from "./components/faq";
 import Contact from "./components/contact";
+import Announce from "./components/announce";
+import Chat from "./components/chat";
+
 function App() {
-  return (
-      <div>
-          <BrowserRouter>
-          <AuthProvider>
-              <Switch>
-                  <PrivateRoute exact path="/" component={Dashboard}/>
-                  <PrivateRoute exact path="/folder/:folderId" component={Dashboard} />
-                  <Route path="/profile" component={Profile}/>
+    return (
+        <div>
+            <BrowserRouter>
+                <AuthProvider>
+                    <Switch>
+                        <PrivateRoute exact path="/" component={Dashboard}/>
+                        <PrivateRoute exact path="/folder/:folderId" component={Dashboard}/>
+                        <Route path="/profile" component={Profile}/>
 
-                  <Route path="/signup" component={Signup}/>
-                  <Route path="/login" component={Login}/>
+                        <Route path="/signup" component={Signup}/>
+                        <Route path="/login" component={Login}/>
 
-                  <Route path="/forgot-password" component={ForgotPassword} />
-                  <Route path="/update-profile" component={UpdateProfile}/>
+                        <Route path="/forgot-password" component={ForgotPassword}/>
+                        <Route path="/update-profile" component={UpdateProfile}/>
 
-                  <Route path="/fav" component={Favourites} />
-                  <Route path="/shared" component={Shared} />
-                  <Route path="/search" component={Search} />
+                        <Route path="/fav" component={Favourites}/>
+                        <Route path="/shared" component={Shared}/>
+                        <Route path="/search" component={Search}/>
 
-                  <Route path="/faq" component={FAQ} />
-                  <Route path="/contact" component={Contact} />
+                        <Route path="/faq" component={FAQ}/>
+                        <Route path="/contact" component={Contact}/>
+                        <Route path="/announce" component={Announce}/>
+                        <Route path='/chat' component={Chat}/>
+                    </Switch>
 
-              </Switch>
+                </AuthProvider>
+            </BrowserRouter>
 
-          </AuthProvider>
-          </BrowserRouter>
-
-      </div>
-  );
+        </div>
+    );
 }
 
 export default App;

@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-function Footer(){
+function Footer() {
     return <div className="footer">
-        <nav className="navbar navbar-dark navbar-expand-sm" >
+        <nav className="navbar navbar-dark navbar-expand-sm">
             <ul className="navbar-nav mx-auto order-0">
                 <li className="nav-item">
                     <Link to="/contact" className="nav-link">Contact us</Link>
@@ -14,7 +14,9 @@ function Footer(){
                 <li className="nav-item">
                     <Link to="/faq" className="nav-link">FAQ</Link>
                 </li>
-
+                <li className="chat">
+                    <Link to="/chat" className="nav-link">Chat</Link>
+                </li>
             </ul>
         </nav>
     </div>

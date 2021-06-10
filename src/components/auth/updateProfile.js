@@ -62,11 +62,12 @@ export default function UpdateProfile() {
                         name,
                         ph,
                         org,
-                        user: curUser.uid
+                        user: curUser.uid,
+                        email: curUser.email
                     })
                 }
                 querySnapshot.forEach((doc) => {
-                    database.users.doc(doc.id).update({name, ph, org, user: curUser.uid})
+                    database.users.doc(doc.id).update({name, ph, org, user: curUser.uid, email: curUser.email})
                 });
             })
             .catch((err) => {

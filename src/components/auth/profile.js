@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react"
-import { Card, Button, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/authcontext"
-import { Link, useHistory } from "react-router-dom"
+import {Card, Button, Alert} from "react-bootstrap"
+import {useAuth} from "../../contexts/authcontext"
+import {Link, useHistory} from "react-router-dom"
 import {database} from "../../helpers/firebase";
 
 export default function Profile() {
     const [error, setError] = useState("")
-    const { curUser, logout } = useAuth()
+    const {curUser, logout} = useAuth()
     const [name, setName] = useState("")
     const [ph, setPh] = useState("")
-    const [org, setOrg]=useState("")
+    const [org, setOrg] = useState("")
     const history = useHistory()
 
-    useEffect(()=>{
+    useEffect(() => {
         database.users.where("user", "==", curUser.uid)
             .get()
             .then((querySnapshot) => {
@@ -25,7 +25,7 @@ export default function Profile() {
             .catch((err) => {
                 console.log("Error getting documents: ", err);
             });
-    },[curUser])
+    }, [curUser])
 
     async function handleLogout() {
         setError("")
@@ -40,14 +40,14 @@ export default function Profile() {
     return (
         <div className="profile">
             <div className="back-btn">
-            <Button
-                to="/"
-                variant="outline-light"
-                className="text-truncate w-100"
-                as={Link}
-            >
-                <span className="btn-label">Back</span>
-            </Button>
+                <Button
+                    to="/"
+                    variant="outline-light"
+                    className="text-truncate w-100"
+                    as={Link}
+                >
+                    <span className="btn-label">Back</span>
+                </Button>
             </div>
             <Card>
                 <Card.Body>

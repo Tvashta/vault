@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import { Button, Modal, Form } from "react-bootstrap"
+import React, {useState} from "react"
+import {Button, Modal, Form} from "react-bootstrap"
 import {useAuth} from "../contexts/authcontext";
 import {database} from "../helpers/firebase";
 import {ROOT_FOLDER} from "../helpers/useFolder";
 import addFolder from "../images/addFolder.PNG"
 
-export default function AddFolder({ currentFolder }) {
+export default function AddFolder({currentFolder}) {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState("")
-    const { curUser } = useAuth()
+    const {curUser} = useAuth()
 
     function openModal() {
         setOpen(true)
@@ -25,7 +25,7 @@ export default function AddFolder({ currentFolder }) {
 
         const path = [...currentFolder.path]
         if (currentFolder !== ROOT_FOLDER) {
-            path.push({ name: currentFolder.name, id: currentFolder.id })
+            path.push({name: currentFolder.name, id: currentFolder.id})
         }
 
         database.folders.add({
@@ -42,7 +42,7 @@ export default function AddFolder({ currentFolder }) {
     return (
         <>
             <button onClick={openModal} className="add-folder-btn">
-               <img alt="" src={addFolder}/>
+                <img alt="" src={addFolder}/>
             </button>
             <Modal animation={false} show={open} onHide={closeModal}>
                 <Button variant="secondary" className="btn-x" onClick={closeModal}>

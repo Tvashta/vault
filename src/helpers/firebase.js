@@ -2,6 +2,7 @@ import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
 import "firebase/storage"
+
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -18,8 +19,10 @@ export const database = {
     folders: firestore.collection("folders"),
     files: firestore.collection("files"),
     users: firestore.collection("users"),
+    feedback: firestore.collection('feedback'),
+    messages: firestore.collection('messages'),
     formatDoc: doc => {
-        return { id: doc.id, ...doc.data() }
+        return {id: doc.id, ...doc.data()}
     },
     getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 }
@@ -32,7 +35,7 @@ export const uiConfig = {
         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
-    callbacks:{
+    callbacks: {
         signInSuccessWithAuthResult: () => false
     }
 }

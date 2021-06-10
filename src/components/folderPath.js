@@ -1,16 +1,16 @@
 import React from "react"
-import { Breadcrumb } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import { ROOT_FOLDER} from "../helpers/useFolder";
+import {Breadcrumb} from "react-bootstrap"
+import {Link} from "react-router-dom"
+import {ROOT_FOLDER} from "../helpers/useFolder";
 
-export default function FolderPath({ currentFolder }) {
+export default function FolderPath({currentFolder}) {
     let path = currentFolder === ROOT_FOLDER ? [] : [ROOT_FOLDER]
     if (currentFolder) path = [...path, ...currentFolder.path]
 
     return (
         <Breadcrumb
             className="flex-grow-1"
-            listProps={{ className: "bg-trans m-0 ml-6" }}
+            listProps={{className: "bg-trans m-0 ml-6"}}
         >
             {path.map((folder, index) => (
                 <Breadcrumb.Item
@@ -19,11 +19,11 @@ export default function FolderPath({ currentFolder }) {
                     linkProps={{
                         to: {
                             pathname: folder.id ? `/folder/${folder.id}` : "/",
-                            state: { folder: { ...folder, path: path.slice(1, index) } },
+                            state: {folder: {...folder, path: path.slice(1, index)}},
                         },
                     }}
                     className="text-truncate d-inline-block path-item"
-                    style={{ maxWidth: "150px" }}
+                    style={{maxWidth: "150px"}}
                 >
                     {folder.name}
                 </Breadcrumb.Item>
@@ -31,7 +31,7 @@ export default function FolderPath({ currentFolder }) {
             {currentFolder && (
                 <Breadcrumb.Item
                     className="text-truncate d-inline-block path-item"
-                    style={{ maxWidth: "200px" }}
+                    style={{maxWidth: "200px"}}
                     active
                 >
                     {currentFolder.name}

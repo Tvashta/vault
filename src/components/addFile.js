@@ -9,80 +9,82 @@ import {ProgressBar, Toast} from "react-bootstrap";
 
 export default function AddFile({currentFolder}) {
     const [uploadingFiles, setUploadingFiles] = useState([])
-    const { curUser } = useAuth()
+    const {curUser} = useAuth()
     const id = v4()
-    function handleUpload(e){
-            const file = e.target.files[0]
-            if (!currentFolder|| !file) return
-            setUploadingFiles(prevUploadingFiles => [
-                ...prevUploadingFiles,
-                { id: id, name: file.name, progress: 0, error: false },
-            ])
+
+    function handleUpload(e) {
+        const file = e.target.files[0]
+        if (!currentFolder || !file) return
+        setUploadingFiles(prevUploadingFiles => [
+            ...prevUploadingFiles,
+            {id: id, name: file.name, progress: 0, error: false},
+        ])
         const path = currentFolder.path.map(f => f.name).join("/");
-            const filePath =
-                currentFolder === ROOT_FOLDER
-                    ? `${path}/${file.name}`
-                    : `${path}/${currentFolder.name}/${file.name}`
-            const uploadTask = storage
-                .ref(`/files/${curUser.uid}/${filePath}`)
-                .put(file)
+        const filePath =
+            currentFolder === ROOT_FOLDER
+                ? `${path}/${file.name}`
+                : `${path}/${currentFolder.name}/${file.name}`
+        const uploadTask = storage
+            .ref(`/files/${curUser.uid}/${filePath}`)
+            .put(file)
 
-            uploadTask.on(
-                "state_changed",
-                snapshot => {
-                    const progress = snapshot.bytesTransferred / snapshot.totalBytes
-                    setUploadingFiles(prevUploadingFiles => {
-                        return prevUploadingFiles.map(uploadFile => {
-                            if (uploadFile.id === id) {
-                                return { ...uploadFile, progress: progress }
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                const progress = snapshot.bytesTransferred / snapshot.totalBytes
+                setUploadingFiles(prevUploadingFiles => {
+                    return prevUploadingFiles.map(uploadFile => {
+                        if (uploadFile.id === id) {
+                            return {...uploadFile, progress: progress}
+                        }
+
+                        return uploadFile
+                    })
+                })
+            },
+            () => {
+                setUploadingFiles(prevUploadingFiles => {
+                    return prevUploadingFiles.map(uploadFile => {
+                        if (uploadFile.id === id) {
+                            return {...uploadFile, error: true}
+                        }
+                        return uploadFile
+                    })
+                })
+            },
+            () => {
+                setUploadingFiles(prevUploadingFiles => {
+                    return prevUploadingFiles.filter(uploadFile => {
+                        return uploadFile.id !== id
+                    })
+                })
+
+                uploadTask.snapshot.ref.getDownloadURL().then(url => {
+                    database.files
+                        .where("name", "==", file.name)
+                        .where("user", "==", curUser.uid)
+                        .where("folderId", "==", currentFolder.id)
+                        .get()
+                        .then(existingFiles => {
+                            const existingFile = existingFiles.docs[0]
+                            if (existingFile) {
+                                existingFile.ref.update({url: url})
+                            } else {
+                                database.files.add({
+                                    url: url,
+                                    name: file.name,
+                                    createdAt: database.getCurrentTimestamp(),
+                                    folderId: currentFolder.id,
+                                    user: curUser.uid,
+                                })
                             }
-
-                            return uploadFile
                         })
-                    })
-                },
-                () => {
-                    setUploadingFiles(prevUploadingFiles => {
-                        return prevUploadingFiles.map(uploadFile => {
-                            if (uploadFile.id === id) {
-                                return { ...uploadFile, error: true }
-                            }
-                            return uploadFile
-                        })
-                    })
-                },
-                () => {
-                    setUploadingFiles(prevUploadingFiles => {
-                        return prevUploadingFiles.filter(uploadFile => {
-                            return uploadFile.id !== id
-                        })
-                    })
-
-                    uploadTask.snapshot.ref.getDownloadURL().then(url => {
-                        database.files
-                            .where("name", "==", file.name)
-                            .where("user", "==", curUser.uid)
-                            .where("folderId", "==", currentFolder.id)
-                            .get()
-                            .then(existingFiles => {
-                                const existingFile = existingFiles.docs[0]
-                                if (existingFile) {
-                                    existingFile.ref.update({ url: url })
-                                } else {
-                                    database.files.add({
-                                        url: url,
-                                        name: file.name,
-                                        createdAt: database.getCurrentTimestamp(),
-                                        folderId: currentFolder.id,
-                                        user: curUser.uid,
-                                    })
-                                }
-                            })
-                    })
-                }
-            )
+                })
+            }
+        )
 
     }
+
     return (
         <div>
             <label className="add-file">
