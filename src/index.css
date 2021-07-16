@@ -641,7 +641,7 @@ main::-webkit-scrollbar-thumb {
     border-radius: 25px;
     position: relative;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 
 .message {

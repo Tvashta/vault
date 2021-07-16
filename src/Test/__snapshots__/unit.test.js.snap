@@ -1,5 +1,266 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Unit Testing Announce Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <div
+      className="profile"
+    >
+      <Card
+        body={false}
+      >
+        <CardBody>
+          <h2
+            className="text-center"
+          >
+            Announce
+          </h2>
+          <Form
+            inline={false}
+          >
+            <FormGroup
+              id="sub"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Name
+              </FormLabel>
+              <div>
+                <img
+                  alt=""
+                  className="form-img"
+                />
+                <input
+                  className="form-input"
+                  name="sub"
+                  placeholder="Subject"
+                  type="text"
+                />
+              </div>
+            </FormGroup>
+            <FormGroup
+              id="msg"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Message
+              </FormLabel>
+              <div>
+                <textarea
+                  className="form-input"
+                  cols="50"
+                  name="msg"
+                  placeholder="Tell us what you feel"
+                  rows="6"
+                />
+              </div>
+            </FormGroup>
+            <FormGroup
+              id="toMail"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Click on the plus sign to add users
+              </FormLabel>
+              <div
+                className="input-group"
+              >
+                <select
+                  className="custom-select form-input"
+                >
+                  <option
+                    defaultValue="1"
+                  >
+                    Add user to folder
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </FormGroup>
+            <div
+              className="shareItems"
+            >
+              <button>
+                <svg
+                  className="bi bi-trash-fill"
+                  fill="#f05454"
+                  height="24"
+                  viewBox="0 0 16 16"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
+                  />
+                </svg>
+              </button>
+              <p />
+            </div>
+            <div
+              className="box-3"
+            >
+              <button
+                className="btn btn-three w-100"
+                type="submit"
+              >
+                <span>
+                  SEND
+                </span>
+              </button>
+            </div>
+          </Form>
+        </CardBody>
+      </Card>
+    </div>
+    <Footer />
+  </div>,
+]
+`;
+
+exports[`Unit Testing Chat Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <div
+      className="chat"
+    >
+      <section>
+        <ChatRoom />
+      </section>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Contact Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <div
+      className="profile"
+    >
+      <Card
+        body={false}
+      >
+        <CardBody>
+          <h2
+            className="text-center"
+          >
+            Contact Us
+          </h2>
+          <h5>
+            Got an revolutionary idea, want to tell us how we can be better or just how you liked us, give us a message! We would love to hear from you
+          </h5>
+          <Form
+            inline={false}
+          >
+            <FormGroup
+              id="email"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Email
+              </FormLabel>
+              <div>
+                <img
+                  alt=""
+                  className="form-img"
+                />
+                <input
+                  className="form-input"
+                  name="email"
+                  placeholder="Enter your mail id"
+                  required={true}
+                  type="email"
+                />
+              </div>
+            </FormGroup>
+            <FormGroup
+              id="name"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Name
+              </FormLabel>
+              <div>
+                <img
+                  alt=""
+                  className="form-img"
+                />
+                <input
+                  className="form-input"
+                  name="name"
+                  placeholder="Enter your name"
+                  type="text"
+                />
+              </div>
+            </FormGroup>
+            <FormGroup
+              id="name"
+            >
+              <FormLabel
+                column={false}
+                srOnly={false}
+              >
+                Message
+              </FormLabel>
+              <div>
+                <textarea
+                  className="form-input"
+                  cols="50"
+                  name="msg"
+                  placeholder="Tell us what you feel"
+                  rows="6"
+                />
+              </div>
+            </FormGroup>
+            <div
+              className="box-3"
+            >
+              <button
+                className="btn btn-three w-100"
+                type="submit"
+              >
+                <span>
+                  SEND
+                </span>
+              </button>
+            </div>
+          </Form>
+        </CardBody>
+      </Card>
+    </div>
+    <Footer />
+  </div>,
+]
+`;
+
 exports[`Unit Testing Dashboard Proper details must be rendered 1`] = `
 Array [
   <div
@@ -11,6 +272,27 @@ Array [
     >
       <AddFolder />
       <AddFile />
+      <div
+        className="search-bar"
+      >
+        <svg
+          className="bi bi-search form-img"
+          fill="#05505B"
+          height="16"
+          viewBox="0 0 18 18"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+        <input
+          className="form-input"
+          placeholder="Search"
+          type="text"
+        />
+      </div>
     </div>
     <div
       className="folder-container"
@@ -66,6 +348,116 @@ Array [
         src="rabbit.png"
       />
     </div>
+    <Footer />
+  </div>,
+]
+`;
+
+exports[`Unit Testing Faq Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <div
+      className="folder-container"
+    >
+      <div
+        className="card-body"
+      >
+        <h2
+          className="text-center"
+        >
+          Frequently Asked Questions [FAQ]
+        </h2>
+      </div>
+      <div
+        className="faq"
+      >
+        <h4>
+          What are the features that vault offers?
+        </h4>
+        <h6>
+          1. Custom Directory Structure
+        </h6>
+        <h6>
+          2. Share folders and view folders shared with you
+        </h6>
+        <h6>
+          3. Announce something to selected people in your organization
+        </h6>
+        <h6>
+          4. Search folders with ease
+        </h6>
+        <h6>
+          5. And so much more!
+        </h6>
+        <h4>
+          How to use Digital Course file?
+        </h4>
+        <h6>
+          Step 1: Go to Vault dashboard
+        </h6>
+        <h6>
+          Step 2: Upload files or create folders
+        </h6>
+        <h6>
+          Step 3: Share and organize files and folders
+        </h6>
+        <h4>
+          What all can I upload?
+        </h4>
+        <h6>
+          Documents, Images, Audio, Video, Whatever you want to!
+        </h6>
+        <h4>
+          How do I Upload files or make folders
+        </h4>
+        <h6>
+          1. At the Bottom right, click on the Icons to upload file or create folder.
+        </h6>
+        <h6>
+          2. Choose the file to upload or name the folder to create
+        </h6>
+        <h4>
+          How to share folders?
+        </h4>
+        <h6>
+          1. Go to Profile
+        </h6>
+        <h6>
+          2. Register yourself into your organisation by giving your organisation name
+        </h6>
+        <h6>
+          3. Right Click the folder you want to share.
+        </h6>
+        <h6>
+          4. Select the members to whom you want to share
+        </h6>
+        <h6>
+          5. Click Share
+        </h6>
+        <h4>
+          What is the limit for creating folders?
+        </h4>
+        <h6>
+          The sky is the limit! We provide infinite nesting
+        </h6>
+        <h4>
+          Contact Vault support
+        </h4>
+        <h6>
+          Get help with common problems above. If you need help with a different vault problem, contact us.
+        </h6>
+        <h4>
+          Submit user feedback
+        </h4>
+        <h6>
+          If you've discovered a new bug or technical issue, report the issue right through either the contact us form or at admin@vault.com
+        </h6>
+      </div>
+    </div>
+    <Footer />
   </div>,
 ]
 `;
@@ -296,6 +688,63 @@ Array [
         Delete
       </button>
     </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Footer Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="footer"
+  >
+    <nav
+      className="navbar navbar-dark navbar-expand-sm"
+    >
+      <ul
+        className="navbar-nav mx-auto order-0"
+      >
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            to="/contact"
+          >
+            Contact us
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            to="/"
+          >
+            Made with ✨
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            to="/faq"
+          >
+            FAQ
+          </Link>
+        </li>
+        <li
+          className="chat"
+        >
+          <Link
+            className="nav-link"
+            to="/chat"
+          >
+            Chat
+          </Link>
+        </li>
+      </ul>
+    </nav>
   </div>,
 ]
 `;
@@ -725,6 +1174,83 @@ Array [
       >
         Log Out
       </Button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Search Proper details must be rendered 1`] = `
+Array [
+  <div
+    className="dashboard"
+  >
+    <NavBar />
+    <input
+      className="form-input search"
+      placeholder="Type to Filter"
+      type="text"
+    />
+    <div
+      className="folder-container"
+    >
+      <div
+        className="d-flex flex-wrap"
+      >
+        <div
+          className="p-2"
+          style={
+            Object {
+              "maxWidth": "250px",
+            }
+          }
+        >
+          <Folder />
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Unit Testing Shared Proper details must be rendered 1`] = `
+Array [
+  <div>
+    <NavBar />
+    <div
+      className="folder-container"
+    >
+      <div
+        className="d-flex flex-wrap"
+      >
+        <div
+          className="p-2"
+          style={
+            Object {
+              "maxWidth": "250px",
+            }
+          }
+        >
+          <Folder />
+        </div>
+      </div>
+    </div>
+    <div
+      className="empty-folder"
+    >
+      <div>
+        <h1>
+          Oops! This folder is empty.
+        </h1>
+        <h4>
+          When someone shares a folder to you, you will find it here.
+        </h4>
+        <h5>
+          Till then have a look at this cute bunny...
+        </h5>
+      </div>
+      <img
+        alt=""
+      />
     </div>
   </div>,
 ]

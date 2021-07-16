@@ -12,6 +12,13 @@ import ForgotPassword from "../../component/forgotpwd";
 import NavBar from "../../component/navbar";
 import UpdateProfile from "../../component/updateprofile";
 import FolderPath from "../../component/path";
+import Announce from "../../component/announce";
+import Chat from "../../component/chat";
+import Contact from "../../component/contact";
+import Faq from "../../component/faq";
+import Footer from "../../component/footer";
+import Search from "../../component/search";
+import Shared from "../../component/shared";
 
 const firebase = require('@firebase/testing')
 const MY_PROJECT_ID = "digital-course-file"
@@ -140,6 +147,76 @@ describe("Unit Testing",()=>{
         });
         it("Proper details must be rendered", () => {
             const component = shallow(<FolderPath/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Announce", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Announce component rendering", () => {
+            shallow(<Announce/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Announce/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Chat", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Chat component rendering", () => {
+            shallow(<Chat/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Chat/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Contact", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Contact component rendering", () => {
+            shallow(<Contact/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Contact/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Faq", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Faq component rendering", () => {
+            shallow(<Faq/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Faq/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Footer", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Footer component rendering", () => {
+            shallow(<Footer/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Footer/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Search", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Search component rendering", () => {
+            shallow(<Search/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Search/>);
+            expect(component.getElements()).toMatchSnapshot();
+        });
+    });
+    describe("Shared", () => {
+        Enzyme.configure({adapter: new Adapter()});
+        it("Shared component rendering", () => {
+            shallow(<Shared/>);
+        });
+        it("Proper details must be rendered", () => {
+            const component = shallow(<Shared/>);
             expect(component.getElements()).toMatchSnapshot();
         });
     });

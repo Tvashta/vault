@@ -9,7 +9,7 @@ function Footer() {
                     <Link to="/contact" className="nav-link">Contact us</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/" className="nav-link">Made with ✨</Link>
+                    <a href="https://github.com/Tvashta/vault" target="_blank" rel="noreferrer noopener" className="nav-link">Made with ✨</a>
                 </li>
                 <li className="nav-item">
                     <Link to="/faq" className="nav-link">FAQ</Link>
